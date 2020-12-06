@@ -3,9 +3,16 @@ import Home from '../views/Home.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
+    path: '',
+    redirect: '/home/main'
+  },
+  {
+    path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {path: 'main', component: () => import('../views/Main.vue')}
+    ]
   },
   {
     path: '/about',
