@@ -19,9 +19,9 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from 'vue';
+import {defineComponent, ref, toRaw, onMounted, watch} from 'vue';
 import router from "@/router";
-
+import { useRoute } from 'vue-router'
 export default defineComponent({
     name: 'header',
     setup() {
@@ -33,7 +33,10 @@ export default defineComponent({
             {iclass: 'icon-liuyan', lable: '留言板', url: '/home/mboard', active: false},
             {iclass: 'icon-yonghu', lable: '关于', url: '/home/about', active: false},
         ])
-        // const active = ref(true)
+        // 获取路由对象
+        const route = useRoute()
+
+        // tab切换路由
         const changeRouter = (url: string, index: number): void => {
             TabList.value.forEach(val => {
                 val.active = false;
@@ -41,6 +44,23 @@ export default defineComponent({
             TabList.value[index].active = true;
             router.push(url);
         }
+        // 页面显示时 激活路由
+        onMounted(() => {
+            setRouterListActive();
+        })
+        // 监听路由变化
+        watch(() => route.path, () => {
+            setRouterListActive();
+        })
+
+        //  设置路由激活状态
+        const setRouterListActive = (): void => {
+            const path = toRaw(route).path as any
+            TabList.value.forEach(val => {
+                val.active = val.url === path['value'];
+            })
+        }
+
         return {
             TabList,
             changeRouter
@@ -58,11 +78,10 @@ export default defineComponent({
     position: fixed;
     background: rgba(255,255,255,0.8);
     width: 70%;
-
     .header-content {
         display: flex;
         justify-content: space-between;
-
+        margin-right: 4vw;
         .title {
             display: flex;
             justify-content: center;

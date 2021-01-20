@@ -26,7 +26,7 @@ export default defineComponent({
     overflow: scroll;
     .body {
         padding: 8vh 18vw 0 18vw;
-        height: 100vh;
+        height: 92vh;
         //width: 100vw;
       /*padding: 4vh 20vw 0 20vw*/
     }

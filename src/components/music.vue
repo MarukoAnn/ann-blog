@@ -70,14 +70,14 @@
             const showAudio = ref(false)
             const timeder = ref(1)
             const audioLists = ref([
-                {label: '朔', url: require('../assets/audio/溯.mp3'), autor: '马吟吟'},
-                {label: '莫问归期', url: require('../assets/audio/蒋雪儿-莫问归期.mp3'), autor: '蒋雪儿'},
-                {label: '无人之岛', url: require('../assets/audio/任然-无人之岛.mp3'), autor: '任然'},
-                {label: '你走', url: require('../assets/audio/松紧先生（李宗锦）-你走.mp3'), autor: '松紧先生（李宗锦）'},
-                {label: '芒种', url: require('../assets/audio/音阙诗听_赵方婧-芒种.mp3'), autor: '音阙诗听_赵方婧'},
-                {label: '电台情歌', url: require('../assets/audio/莫文蔚-电台情歌.mp3'), autor: '莫文蔚'},
-                {label: '像鱼', url: require('../assets/audio/王贰浪-像鱼.mp3'), autor: '王贰浪'},
-                {label: '夜的第七章', url: require('../assets/audio/周杰伦_潘儿-夜的第七章.mp3'), autor: '周杰伦_潘儿'},
+                {label: '朔', url: 'http://8.129.165.188/music/溯.mp3', autor: '马吟吟'},
+                {label: '莫问归期', url: 'http://8.129.165.188/music/蒋雪儿-莫问归期.mp3', autor: '蒋雪儿'},
+                {label: '无人之岛', url: 'http://8.129.165.188/music/任然-无人之岛.mp3', autor: '任然'},
+                {label: '你走', url: 'http://8.129.165.188/music/松紧先生（李宗锦）-你走.mp3', autor: '松紧先生（李宗锦）'},
+                {label: '芒种', url: 'http://8.129.165.188/music/音阙诗听_赵方婧-芒种.mp3', autor: '音阙诗听_赵方婧'},
+                {label: '电台情歌', url: 'http://8.129.165.188/music/莫文蔚-电台情歌.mp3', autor: '莫文蔚'},
+                {label: '像鱼', url: 'http://8.129.165.188/music/王贰浪-像鱼.mp3', autor: '王贰浪'},
+                {label: '夜的第七章', url: 'http://8.129.165.188/music/周杰伦_潘儿-夜的第七章.mp3', autor: '周杰伦_潘儿'},
             ])
             const audio = ref(new Audio(audioLists.value[index.value].url));
             // 开始调用
