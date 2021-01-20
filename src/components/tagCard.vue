@@ -1,60 +1,91 @@
 <template>
     <div class="tag-card">
-       <div class="tag-content">
-           <div class="title">
-               <i class="iconfont icon-Id" style="font-size: 22px;color: #42b983;margin-top: 4px;margin-right: 10px"></i>
-               <h4>我的名片</h4>
-           </div>
-           <div class="content">
-               <p>网名：moonshine</p>
-               <p>职业：web前端开发工程师</p>
-               <p>现居：广东省-广州市</p>
-               <p>Email：moonsunshinean@gamail</p>
-               <p>QQ：710159940</p>
-               <p>微信：Moonshinean</p>
-           </div>
-       </div>
+        <div class="tag-content">
+            <div class="title">
+                <i :class="['iconfont', tagData.data.class]"
+                   :style="{'font-size': '22px','color': tagData.data.color,'margin-top': '4px','margin-right': '10px'}"></i>
+                <h4>{{tagData.data.label}}</h4>
+            </div>
+            <div class="content">
+                <slot name="content"></slot>
+            </div>
+        </div>
     </div>
 </template>
 
-<script>
-import {defineComponent, ref} from 'vue';
+<script lang="ts">
+import {defineComponent, reactive} from 'vue';
+
+interface TagTitle {
+    label: string;
+    color: string;
+    class: string;
+}
+interface TagInfo {
+    tagList: TagTitle[];
+    data: TagTitle;
+}
 
 export default defineComponent({
     name: "tag-card",
-    setup(){
-       const tagType = ref();
+    props: {
+        tagType: {
+            type: String,
+            defalut: '0'
+        }
+    },
+    setup(props) {
+        const tagData: TagInfo = reactive({
+            tagList:  [
+                {label: '我的名片', color: '#42b983', class: 'icon-Id'},
+                {label: '最热文章', color: '#E13455', class: 'icon-zuire'},
+                {label: '标签', color: '#437DFF', class: 'icon-biaoqian'},
+            ],
+            data: {label: '', class: '', color: ''}
 
-       return {
-           tagType
-       }
+        })
+        if (props.tagType) {
+            tagData.data.class = tagData.tagList[Number(props.tagType)].class
+            tagData.data.color = tagData.tagList[Number(props.tagType)].color
+            tagData.data.label = tagData.tagList[Number(props.tagType)].label
+        }
+        console.log(tagData.data)
+        return {
+            tagData
+        }
     }
 })
 </script>
 
 <style scoped lang="scss">
-    .tag-card {
-        width: 20vw;
-        border-radius: 6px;
-        border: 1px solid #EDF0F6;
-        box-shadow: 0 0 14px #EDF0F6;
-        .tag-content {
-            padding: 1vh 1vw;
-            .title {
-                display: flex;
-                align-items: center;
-                text-align: left;
-            }
-            .content {
-                margin-top: 1vh;
-                padding: 1vh 0 2vh 0;
-                border-top: 1px solid #DADCE0;
-                text-align: left;
-                p {
-                    padding-top: 1vh;
-                }
-            }
+.tag-card {
+    width: 20vw;
+    border-radius: 6px;
+    border: 1px solid #EDF0F6;
+    box-shadow: 0 0 14px #EDF0F6;
+    background: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2vh;
+
+    .tag-content {
+        padding: 1vh 1vw;
+
+        .title {
+            display: flex;
+            align-items: center;
+            text-align: left;
         }
 
+        .content {
+            margin-top: 1vh;
+            padding: 1vh 0 2vh 0;
+            border-top: 1px solid #DADCE0;
+            text-align: left;
+
+            p {
+                padding-top: 1vh;
+            }
+        }
     }
+
+}
 </style>

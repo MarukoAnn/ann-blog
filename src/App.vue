@@ -11,10 +11,21 @@
   text-align: center;
   color: #2c3e50;
 }
+#app::after{
+    content: "";
+    background: url('./assets/image/ic_bgc.jpg') no-repeat;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
 
 #nav {
   padding: 30px;
-
+  z-index: 9;
   a {
     font-weight: bold;
     color: #2c3e50;

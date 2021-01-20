@@ -143,10 +143,11 @@
             }
             // 添加播放长度
             const addPross = (): void => {
-                setAudioTimer.value = setInterval(() => {
+                // 强制转换为时间类型
+                setAudioTimer.value = Number(setInterval(() => {
                     timeder.value += 1;
                     prossWidth.value = (timeder.value / audio.value?.duration) * 100
-                }, 1000)
+                }, 1000))
             }
             // 开始播放
             const playAudio = (): void => {
