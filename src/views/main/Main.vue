@@ -76,7 +76,7 @@ export default defineComponent({
 .main{
     display: flex;
     justify-content: space-between;
-    margin-top: 4vh;
+    margin-top: 2vh;
 
     .left {
         .item {

@@ -158,12 +158,9 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import "src/assets/style/mixin";
 .articel {
-    margin-top: 4vh;
-    padding: 4vh 4vw;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.8);
-
+    @include con-body;
     .title {
         text-align: center;
         padding: 2vh;
