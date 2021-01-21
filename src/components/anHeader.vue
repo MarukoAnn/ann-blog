@@ -30,7 +30,7 @@ export default defineComponent({
             {iclass: 'icon-biaoqian', lable: '标签', url: '/home/tag', active: false},
             {iclass: 'icon-leimupinleifenleileibie2', lable: '分类', url: '/home/sort', active: false},
             {iclass: 'icon-lajitong', lable: '历程', url: '/home/course', active: false},
-            {iclass: 'icon-liuyan', lable: '留言板', url: '/home/mboard', active: false},
+            // {iclass: 'icon-liuyan', lable: '留言板', url: '/home/mboard', active: false},
             {iclass: 'icon-yonghu', lable: '关于', url: '/home/about', active: false},
         ])
         // 获取路由对象

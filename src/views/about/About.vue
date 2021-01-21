@@ -34,8 +34,9 @@ export default defineComponent({
             {label: '个人简介', value: '一个95后的前端程序员，19年入行，一直潜心研究前端技术，努力学习、努力工作，争取以后分享一些个人心得和技术文章，希望大家一起学习'},
         ])
         const riList = ref([
-            {label: '2021年1月20日 21:45', list: ['1、搭建静态博客', '2、编写音乐组件', '3、编写关于我的信息模块']},
+            {label: '2021年1月21日 22:09', list: ['1、博客分类、标签等、历程等模块添加']},
             {label: '2021年1月20日 23:16', list: ['1、添加了卡片组件', '2、添加了第一条技术分享，关于this指向问题的说明', '3、下雪动画的添加']},
+            // {label: '2021年1月20日 21:45', list: ['1、搭建静态博客', '2、编写音乐组件', '3、编写关于我的信息模块']},
         ])
         return {
             itemList,
@@ -49,7 +50,7 @@ export default defineComponent({
 @import "src/assets/style/mixin";
 
 .about {
-    height: 88%;
+    min-height: 88%;
     text-align: left;
     @include con-body
     .item {
